@@ -51,7 +51,7 @@ const TransformationForm = ({action, data = null, userId, type, creditBalance, c
   const [isTransforming, setIsTransforming] = useState(false);
   const [transformationConfig, setTransformationConfig] = useState(config);
   const [isPending, startTransition] = useTransition();
-  const route = useRouter();
+  const router = useRouter();
 
   const initialValues = data && action === "Update" ? {
     title: data?.title,
@@ -105,7 +105,7 @@ const TransformationForm = ({action, data = null, userId, type, creditBalance, c
           if (newImage) {
             form.reset();
             setImage(data);
-            route.push(`/transformations/${newImage._id}`);
+            router.push(`/transformations/${newImage._id}`);
           }
         } catch (error) {
           console.log(error);
@@ -124,7 +124,7 @@ const TransformationForm = ({action, data = null, userId, type, creditBalance, c
           });
 
           if (updatedImage) {
-            route.push(`/transformations/${updatedImage._id}`);
+            router.push(`/transformations/${updatedImage._id}`);
           }
         } catch (error) {
           console.log(error);

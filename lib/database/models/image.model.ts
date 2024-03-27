@@ -22,7 +22,7 @@ const ImageSchema = new Schema({
     type: String,
     required: true,
   },
-  transformation: {
+  transformationType: {
     type: String,
     required: true,
   },
