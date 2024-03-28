@@ -140,7 +140,7 @@ const TransformationForm = ({action, data = null, userId, type, creditBalance, c
     const imageSize = aspectRatioOptions[value as AspectRatioKey];
     setImage((prevState: any) => ({
       ...prevState,
-      aspectRation: imageSize.aspectRatio,
+      aspectRatio: imageSize.aspectRatio,
       width: imageSize.width,
       height: imageSize.height,
     }));
@@ -160,8 +160,8 @@ const TransformationForm = ({action, data = null, userId, type, creditBalance, c
         }
       }));
 
-      return onChangeField(value);
-    }, 1000);
+    }, 1000)();
+    return onChangeField(value);
   }
 
   const onTransformHandler = async () => {
@@ -204,6 +204,7 @@ const TransformationForm = ({action, data = null, userId, type, creditBalance, c
             render={({field}) => (
               <Select
                 onValueChange={(value) => onSelectFieldHandler(value, field.onChange)}
+                value={field.value}
               >
                 <SelectTrigger className="select-field">
                   <SelectValue placeholder="Select size" />
